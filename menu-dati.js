@@ -20,7 +20,7 @@ const LOCALE = {
   orari: { it: 'Tutti i giorni 7:30 — 22:00', en: 'Every day 7:30 — 22:00' },
   wifi: { rete: 'Mera Bistrot', pass: 'DA DEFINIRE' },
   recensioni: {
-    google: 'https://www.google.com/search?q=Mera+Bistrot+Via+Merulana+106+Roma',
+    google: 'https://www.google.com/maps/search/?api=1&query=MERA%20Bistrot%20%26%20Cafe%27&query_place_id=ChIJcVcAfiRhLxMROKVtWWs08YQ',
     tripadvisor: 'https://www.tripadvisor.it/'
   },
   mappa: 'https://maps.google.com/?q=Via+Merulana+106,+Roma'
