@@ -57,6 +57,9 @@ button{font:inherit;color:inherit}
   border:1px solid rgba(239,231,214,.4);color:inherit;text-decoration:none;
   font-weight:500;font-size:.88rem}
 .conto a.g{background:var(--senape);border-color:var(--senape);color:var(--scurissimo)}
+.conto .wrap{position:relative}
+.chiudi-conto{position:absolute;top:10px;right:0;background:none;border:0;
+  color:#8FB3B8;font-size:24px;line-height:1;padding:4px 8px;cursor:pointer}
 
 /* ── apertura ────────────────────────────────────────────────────────── */
 .hero{padding-block:26px 6px}
@@ -216,6 +219,7 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
 
 <div class="conto" id="conto">
   <div class="wrap">
+    <button class="chiudi-conto" id="chiudi-conto" aria-label="Chiudi">&times;</button>
     <p data-t="contoT">Com'è andata?</p>
     <small data-t="contoS">Un minuto del tuo tempo ci aiuta più di quanto immagini.</small>
     <div class="r">
@@ -307,7 +311,12 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
 <script>
 (function(){
   var L = 'it';
-  var ROM = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII'];
+  // calcolati, non elencati: aggiungere sezioni non deve produrre 'undefined'
+  function romano(n){
+    var t = [[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']], r = '';
+    t.forEach(function(c){ while(n >= c[0]){ r += c[1]; n -= c[0]; } });
+    return r;
+  }
 
   var T = {
     prenota:{it:'Prenota un tavolo', en:'Book a table', es:'Reservar una mesa'},
@@ -336,7 +345,7 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
   function v(o, campo){ return o[campo + L] || o[campo]; }
   // scorciatoie: n = it/en, d = dit/den
   function nome(o){ return o[L] || o.it; }
-  function desc(o){ return o['d' + L] || ''; }
+  function desc(o){ return o['d' + L] || o.dit || ''; }
   function testo(o){ if(!o) return ''; return typeof o === 'string' ? o : (o[L] || o.it); }
 
   /* ── numero del tavolo dal QR / NFC: ?tavolo=7 ───────────────────── */
@@ -356,12 +365,12 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
     SEZIONI.forEach(function(s, i){
       var a = document.createElement('a');
       a.href = '#' + s.id;
-      a.innerHTML = '<i>' + ROM[i] + '</i>' + nome(s);
+      a.innerHTML = '<i>' + romano(i + 1) + '</i>' + nome(s);
       idx.appendChild(a);
 
       var sec = document.createElement('section');
       sec.className = 'sez'; sec.id = s.id;
-      var h = '<div class="wrap"><div class="sez-h"><span class="num">' + ROM[i] + '</span>' +
+      var h = '<div class="wrap"><div class="sez-h"><span class="num">' + romano(i + 1) + '</span>' +
               '<h2>' + nome(s) + '</h2>' +
               (s.ore ? '<small>' + testo(s.ore) + '</small>' : '') + '</div>';
       if(s.nota) h += '<p class="nota">' + testo(s.nota) + '</p>';
@@ -377,7 +386,7 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
         }
         h += '<ul class="voci' + (g.fitto ? ' fitto' : '') + '">';
         g.voci.forEach(function(x){
-          var d = x['d' + L] || '';
+          var d = x['d' + L] || x.dit || '';
           h += '<li><span class="n">' + nome(x) + '</span>' +
                (x.p ? '<span class="p">' + x.p + ' &euro;</span>' : '') +
                (d ? '<span class="d">' + d + '</span>' : '') + '</li>';
@@ -446,8 +455,9 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
   /* ── prenotazione → WhatsApp ─────────────────────────────────────── */
   var dlg = document.getElementById('dlg');
   ['apri-prenota','apri-prenota-2'].forEach(function(id){
-    document.getElementById(id).addEventListener('click', function(){ dlg.showModal(); });
-  });
+    var b = document.getElementById(id);   // se un pulsante non c'e', il menu
+    if(b) b.addEventListener('click', function(){ dlg.showModal(); });  // deve
+  });                                      // comunque disegnarsi
   document.getElementById('chiudi').addEventListener('click', function(){ dlg.close(); });
   document.getElementById('form-prenota').addEventListener('submit', function(e){
     e.preventDefault();
@@ -471,11 +481,24 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
     if(!arrivo || ora - arrivo > 6 * 3600e3){
       arrivo = ora; try{ localStorage.setItem(CHIAVE, arrivo); }catch(e){}
     }
-    var manca = 75 * 60e3 - (ora - arrivo);
-    if(manca <= 0) document.getElementById('conto').classList.add('on');
-    else if(manca < 3 * 3600e3) setTimeout(function(){
+    var CHIUSA = 'mera-conto-chiuso-' + tavolo, giaChiusa = false;
+    try{ giaChiusa = localStorage.getItem(CHIUSA) === String(arrivo); }catch(e){}
+
+    function mostraConto(){
+      if(giaChiusa) return;
       document.getElementById('conto').classList.add('on');
-    }, manca);
+    }
+    var bottoneChiudi = document.getElementById('chiudi-conto');
+    if(bottoneChiudi) bottoneChiudi.addEventListener('click', function(){
+      document.getElementById('conto').classList.remove('on');
+      giaChiusa = true;
+      // legata all'arrivo: al tavolo successivo la fascia torna
+      try{ localStorage.setItem(CHIUSA, String(arrivo)); }catch(e){}
+    });
+
+    var manca = 75 * 60e3 - (ora - arrivo);
+    if(manca <= 0) mostraConto();
+    else if(manca < 3 * 3600e3) setTimeout(mostraConto, manca);
   }
 
   // ?lang=es forza la lingua: serve per linkare il menu gia' tradotto

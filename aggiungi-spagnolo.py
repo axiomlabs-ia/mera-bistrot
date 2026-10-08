@@ -284,10 +284,13 @@ DESCRIZIONI = {
 
 
 def aggiungi(testo, motivo, tabella, nuova_chiave, mancanti):
+    """Il motivo deve catturare anche l'eventuale chiave spagnola gia' presente
+    (ultimo gruppo): senza, al secondo giro la guardia non la vedrebbe e la
+    aggiungerebbe una seconda volta."""
     def sostituisci(m):
-        intero, italiano = m.group(0), m.group(1)
-        if f'{nuova_chiave}:' in intero:
-            return intero
+        intero, italiano, gia = m.group(0), m.group(1), m.groups()[-1]
+        if gia:
+            return intero                       # gia' tradotto: non si tocca
         spagnolo = tabella.get(italiano)
         if spagnolo is None:
             mancanti.append(italiano)
@@ -300,11 +303,13 @@ def main():
     p = pathlib.Path(__file__).parent / 'menu-dati.js'
     if not p.exists():
         sys.exit('menu-dati.js non trovato')
-    s = p.read_text()
+    s = p.read_text(encoding='utf-8')
     mancanti = []
-    s = aggiungi(s, r"it: '([^']*)',\s*\n?\s*en: '[^']*'", NOMI, 'es', mancanti)
-    s = aggiungi(s, r"dit: '([^']*)',\s*\n?\s*den: '[^']*'", DESCRIZIONI, 'des', mancanti)
-    p.write_text(s)
+    s = aggiungi(s, r"it: '([^']*)',\s*\n?\s*en: '[^']*'(,\s*es: '[^']*')?",
+                 NOMI, 'es', mancanti)
+    s = aggiungi(s, r"dit: '([^']*)',\s*\n?\s*den: '[^']*'(,\s*des: '[^']*')?",
+                 DESCRIZIONI, 'des', mancanti)
+    p.write_text(s, encoding='utf-8')
 
     print(f"aggiunte {s.count(chr(39) + ', es: ') + s.count(', es: ')} voci spagnole")
     senza = sorted(set(mancanti))
