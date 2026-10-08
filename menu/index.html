@@ -27,6 +27,8 @@ body{margin:0;background:var(--fondo);color:var(--inchiostro);
 img{display:block;max-width:100%}
 button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--scuro);outline-offset:3px}
+/* senza questo, un display: esplicito batte l'attributo hidden */
+[hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 .wrap{max-width:560px;margin:0 auto;padding-inline:var(--gutter)}
 .eti{font-family:var(--etichetta);font-variation-settings:'wdth' 82;
@@ -207,6 +209,7 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
     <div class="lang" role="group" aria-label="Lingua">
       <button data-l="it" aria-pressed="true">IT</button>
       <button data-l="en" aria-pressed="false">EN</button>
+      <button data-l="es" aria-pressed="false">ES</button>
     </div>
   </div>
 </header>
@@ -307,30 +310,33 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
   var ROM = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII'];
 
   var T = {
-    prenota:{it:'Prenota un tavolo', en:'Book a table'},
+    prenota:{it:'Prenota un tavolo', en:'Book a table', es:'Reservar una mesa'},
     prenotaS:{it:'Confermiamo su WhatsApp, di solito in pochi minuti.',
-              en:'We confirm on WhatsApp, usually within minutes.'},
-    recensioni:{it:'Recensioni', en:'Reviews'},
-    wifiT:{it:'Wi-Fi', en:'Wi-Fi'},
-    rete:{it:'Rete', en:'Network'},
-    pass:{it:'Password', en:'Password'},
-    indirizzo:{it:'Indirizzo', en:'Address'},
-    orari:{it:'Orari', en:'Hours'},
-    telefono:{it:'Telefono', en:'Phone'},
-    giorno:{it:'Giorno', en:'Date'}, ora:{it:'Ora', en:'Time'},
-    persone:{it:'Persone', en:'People'}, nome:{it:'Nome', en:'Name'},
-    invia:{it:'Invia su WhatsApp', en:'Send on WhatsApp'},
-    contoT:{it:'Com’è andata?', en:'How was it?'},
+              en:'We confirm on WhatsApp, usually within minutes.',
+              es:'Confirmamos por WhatsApp, normalmente en pocos minutos.'},
+    recensioni:{it:'Recensioni', en:'Reviews', es:'Reseñas'},
+    wifiT:{it:'Wi-Fi', en:'Wi-Fi', es:'Wi-Fi'},
+    rete:{it:'Rete', en:'Network', es:'Red'},
+    pass:{it:'Password', en:'Password', es:'Contraseña'},
+    indirizzo:{it:'Indirizzo', en:'Address', es:'Dirección'},
+    orari:{it:'Orari', en:'Hours', es:'Horario'},
+    telefono:{it:'Telefono', en:'Phone', es:'Teléfono'},
+    giorno:{it:'Giorno', en:'Date', es:'Día'},
+    ora:{it:'Ora', en:'Time', es:'Hora'},
+    persone:{it:'Persone', en:'People', es:'Personas'},
+    nome:{it:'Nome', en:'Name', es:'Nombre'},
+    invia:{it:'Invia su WhatsApp', en:'Send on WhatsApp', es:'Enviar por WhatsApp'},
+    contoT:{it:'Com’è andata?', en:'How was it?', es:'¿Qué tal ha ido?'},
     contoS:{it:'Un minuto del tuo tempo ci aiuta più di quanto immagini.',
-            en:'A minute of your time helps us more than you think.'},
-    tavolo:{it:'Tavolo', en:'Table'}
+            en:'A minute of your time helps us more than you think.',
+            es:'Un minuto de tu tiempo nos ayuda más de lo que imaginas.'},
+    tavolo:{it:'Tavolo', en:'Table', es:'Mesa'}
   };
-
   function t(k){ return (T[k] && T[k][L]) || ''; }
-  function v(o, campo){ return (L === 'en' && o[campo + 'en']) ? o[campo + 'en'] : o[campo]; }
+  function v(o, campo){ return o[campo + L] || o[campo]; }
   // scorciatoie: n = it/en, d = dit/den
-  function nome(o){ return L === 'en' && o.en ? o.en : o.it; }
-  function desc(o){ var d = L === 'en' ? o.den : o.dit; return d || (L === 'en' ? '' : '') ; }
+  function nome(o){ return o[L] || o.it; }
+  function desc(o){ return o['d' + L] || ''; }
   function testo(o){ if(!o) return ''; return typeof o === 'string' ? o : (o[L] || o.it); }
 
   /* ── numero del tavolo dal QR / NFC: ?tavolo=7 ───────────────────── */
@@ -371,7 +377,7 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
         }
         h += '<ul class="voci' + (g.fitto ? ' fitto' : '') + '">';
         g.voci.forEach(function(x){
-          var d = L === 'en' ? x.den : x.dit;
+          var d = x['d' + L] || '';
           h += '<li><span class="n">' + nome(x) + '</span>' +
                (x.p ? '<span class="p">' + x.p + ' &euro;</span>' : '') +
                (d ? '<span class="d">' + d + '</span>' : '') + '</li>';
@@ -423,8 +429,15 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
   document.getElementById('f-tel').href = 'tel:' + LOCALE.tel;
   document.getElementById('f-wa').textContent = LOCALE.waLabel;
   document.getElementById('f-wa').href = 'https://wa.me/' + LOCALE.wa;
-  document.getElementById('wifi-rete').textContent = LOCALE.wifi.rete;
-  document.getElementById('wifi-pass').textContent = LOCALE.wifi.pass;
+  // senza password la targa Wi-Fi resta nascosta: meglio niente che un segnaposto
+  if(LOCALE.wifi && LOCALE.wifi.pass){
+    document.getElementById('wifi-rete').textContent = LOCALE.wifi.rete;
+    document.getElementById('wifi-pass').textContent = LOCALE.wifi.pass;
+  } else {
+    document.getElementById('wifi').hidden = true;
+    var bottone = document.querySelector('.azioni a[href="#wifi"]');
+    if(bottone) bottone.hidden = true;
+  }
   document.getElementById('a-mappa').href = LOCALE.mappa;
   document.getElementById('a-recensioni').href = LOCALE.recensioni.google;
   document.getElementById('l-google').href = LOCALE.recensioni.google;
@@ -439,11 +452,14 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
   document.getElementById('form-prenota').addEventListener('submit', function(e){
     e.preventDefault();
     var f = new FormData(e.target);
-    var msg = L === 'en'
-      ? 'Hello Mera Bistrot, I would like to book a table for ' + f.get('persone') +
-        ' on ' + f.get('data') + ' at ' + f.get('ora') + '. Name: ' + f.get('nome') + '.'
-      : 'Ciao Mera Bistrot, vorrei prenotare un tavolo per ' + f.get('persone') +
-        ' il ' + f.get('data') + ' alle ' + f.get('ora') + '. Nome: ' + f.get('nome') + '.';
+    var modelli = {
+      it: 'Ciao Mera Bistrot, vorrei prenotare un tavolo per @P il @D alle @O. Nome: @N.',
+      en: 'Hello Mera Bistrot, I would like to book a table for @P on @D at @O. Name: @N.',
+      es: 'Hola Mera Bistrot, quisiera reservar una mesa para @P el @D a las @O. Nombre: @N.'
+    };
+    var msg = (modelli[L] || modelli.it)
+      .replace('@P', f.get('persone')).replace('@D', f.get('data'))
+      .replace('@O', f.get('ora')).replace('@N', f.get('nome'));
     window.open('https://wa.me/' + LOCALE.wa + '?text=' + encodeURIComponent(msg), '_blank');
     dlg.close();
   });
@@ -462,9 +478,14 @@ dialog::backdrop{background:rgba(21,40,44,.55)}
     }, manca);
   }
 
-  var salvata = null;
-  try{ salvata = localStorage.getItem('mera-lang'); }catch(e){}
-  if(!salvata) salvata = (navigator.language || 'it').slice(0,2) === 'it' ? 'it' : 'en';
+  // ?lang=es forza la lingua: serve per linkare il menu gia' tradotto
+  var chiesta = new URLSearchParams(location.search).get('lang');
+  var salvata = ['it', 'en', 'es'].indexOf(chiesta) >= 0 ? chiesta : null;
+  if(!salvata){ try{ salvata = localStorage.getItem('mera-lang'); }catch(e){} }
+  if(!salvata){
+    var sua = (navigator.language || 'it').slice(0, 2);
+    salvata = ['it', 'en', 'es'].indexOf(sua) >= 0 ? sua : 'en';
+  }
   lingua(salvata);
 })();
 </script>
