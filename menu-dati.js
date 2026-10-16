@@ -150,8 +150,8 @@ const SEZIONI = [
 /* ══ III ═ ANTIPASTI ══════════════════════════════════════════════════════ */
 { id: 'antipasti', it: 'Antipasti', en: 'Starters', es: 'Entrantes',
   gruppi: [ { voci: [
-    { it: 'Supplì al telefono', en: 'Classic supplì', es: 'Supplì clásico', p: '2,20' },
-    { it: 'Crocchetta di patate', en: 'Potato croquette', es: 'Croqueta de patata', p: '2,20' },
+    { it: 'Supplì al telefono', en: 'Classic supplì', es: 'Supplì clásico', p: '1,80' },
+    { it: 'Crocchetta di patate', en: 'Potato croquette', es: 'Croqueta de patata', p: '1,80' },
     { it: 'Supplì alla carbonara', en: 'Carbonara supplì', es: 'Supplì a la carbonara', p: '3' },
     { it: 'Supplì all’amatriciana', en: 'Amatriciana supplì', es: 'Supplì a la amatriciana', p: '3' },
     { it: 'Bruschetta al pomodoro', en: 'Tomato bruschetta', es: 'Bruschetta de tomate', p: '4',
@@ -408,19 +408,31 @@ const SEZIONI = [
     { it: 'Whisky', en: 'Whisky', es: 'Whisky', p: '4,00' } ] } ] },
 
 /* ══ XI ══ AL TAGLIO (108) ════════════════════════════════════════════════ */
-{ id: 'taglio', it: 'Pizza al taglio', en: 'Pizza by the slice', es: 'Pizza al corte',
+/* Prezzi dalla lavagna in strada, foto del 16 ottobre 2026: pizza a peso, rosticceria, gastronomia */
+{ id: 'taglio', it: 'Al taglio e gastronomia', en: 'By the slice and deli', es: 'Al corte y gastronomía',
   ore: { it: 'TUTTO IL GIORNO · MERULANA 108', en: 'ALL DAY · MERULANA 108', es: 'TODO EL DÍA · MERULANA 108' },
   foto: '../img/w_foto_tranci.jpg',
-  nota: { it: 'Due porte più in là, al 108. Prezzo al trancio. Pizze tonde da asporto su ordinazione.',
-          en: 'Two doors down, at number 108. Price per slice. Round pizzas to take away, on order.', es: 'Dos puertas más allá, en el 108. Precio por porción. Pizzas redondas para llevar por encargo.' },
-  gruppi: [ { voci: [
-    { it: 'Bianca', en: 'White', es: 'Blanca', p: '2,50' },
-    { it: 'Rossa, Marinara, Patate', en: 'Tomato, Marinara, Potato', es: 'Roja, Marinara, Patata', p: '4,00' },
-    { it: 'Margherita', en: 'Margherita', es: 'Margherita', p: '4,50' },
-    { it: 'Crostini', en: 'Crostini', es: 'Crostini', p: '5,00' },
-    { it: 'Speciali', en: 'Speciality', es: 'Especiales', p: '6,00' },
-    { it: 'Ripiene', en: 'Filled', es: 'Rellenas', p: '6,00' },
-    { it: 'Calzoni', en: 'Calzoni', es: 'Calzoni', p: '5,00' },
+  nota: { it: 'Due porte più in là, al 108. La pizza al taglio si paga a peso: prezzi ogni 100 g. Pizze tonde da asporto su ordinazione.',
+          en: 'Two doors down, at number 108. Pizza by the slice is sold by weight: prices per 100 g. Round pizzas to take away, on order.', es: 'Dos puertas más allá, en el 108. La pizza al corte se vende al peso: precios por 100 g. Pizzas redondas para llevar por encargo.' },
+  gruppi: [ { it: 'Pizza a peso', en: 'Pizza by weight', es: 'Pizza al peso', voci: [
+    { it: 'Pizza bianca', en: 'White pizza', es: 'Pizza blanca', p: '1,50',
+      dit: 'ogni 100 g', den: 'per 100 g', des: 'por 100 g' },
+    { it: 'Pizza rossa, patate sfoglia', en: 'Tomato pizza, thin-sliced potato', es: 'Pizza roja, patata en láminas', p: '1,70',
+      dit: 'ogni 100 g', den: 'per 100 g', des: 'por 100 g' },
+    { it: 'Pizza farcita, ripiena', en: 'Topped or filled pizza', es: 'Pizza con relleno', p: '1,80',
+      dit: 'ogni 100 g', den: 'per 100 g', des: 'por 100 g' } ] },
+  { it: 'Rosticceria', en: 'Fried snacks', es: 'Fritos', voci: [
+    { it: 'Supplì classico, crocchetta', en: 'Classic supplì, potato croquette', es: 'Supplì clásico, croqueta', p: '1,80',
+      dit: 'al pezzo', den: 'each', des: 'por unidad' },
+    { it: 'Supplì carbonara, amatriciana', en: 'Carbonara or amatriciana supplì', es: 'Supplì carbonara o amatriciana', p: '3,00',
+      dit: 'al pezzo', den: 'each', des: 'por unidad' } ] },
+  { it: 'Gastronomia', en: 'Deli', es: 'Gastronomía', voci: [
+    { it: 'Primi piatti', en: 'Pasta dishes', es: 'Primeros', p: '7,00' },
+    { it: 'Secondi', en: 'Main courses', es: 'Segundos', p: '8,00' },
+    { it: 'Contorni', en: 'Side dishes', es: 'Guarniciones', p: '4,00' },
+    { it: 'Secondo, contorno e acqua', en: 'Main, side and water', es: 'Segundo, guarnición y agua', p: '10,00' },
+    { it: 'Trittico', en: 'Trio', es: 'Trío', p: '10,00' } ] },
+  { it: '', en: '', es: '', voci: [
     { it: 'Bibita in lattina', en: 'Canned drink', es: 'Refresco en lata', p: '3,50' } ] } ] }
 
 ];

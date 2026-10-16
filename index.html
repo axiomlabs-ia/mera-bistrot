@@ -140,7 +140,8 @@ h1,h2,h3{font-weight:500;letter-spacing:-.035em;line-height:1.0}
 .listino li{display:flex;align-items:baseline;gap:12px;padding:12px 0;
   border-bottom:1px solid var(--riga)}
 .listino i{flex:1;border-bottom:1px dotted rgba(31,95,107,.32);transform:translateY(-5px)}
-.listino b{font-weight:500;color:var(--petrolio)}
+.listino b{font-weight:500;color:var(--petrolio);white-space:nowrap}
+.listino b small{font-weight:400;font-size:.8em;color:var(--tenue)}
 
 /* ── fiducia ─────────────────────────────────────────────────────────── */
 .fiducia .wrap{display:grid;gap:30px;padding-top:56px;padding-bottom:56px;
@@ -293,13 +294,13 @@ footer a{color:var(--crema);text-decoration:none}
       <span class="kick">Merulana 108 · tutto il giorno</span>
       <h2 style="font-size:clamp(32px,5vw,50px);margin-top:16px">Mera Pizza<br>al taglio</h2>
       <p style="font-family:var(--serif);font-size:19px;color:#3C5256;margin:18px 0 28px">
-        Due porte più in là. Teglia romana, cotta e tagliata sul momento,
+        Due porte più in là. Teglia romana a peso, rosticceria e gastronomia,
         qui o da portare via.</p>
       <ul class="listino">
-        <li>Bianca<i></i><b>2,50</b></li>
-        <li>Rossa, Marinara, Patate<i></i><b>4,00</b></li>
-        <li>Margherita<i></i><b>4,50</b></li>
-        <li>Speciali e ripiene<i></i><b>6,00</b></li>
+        <li>Pizza bianca<i></i><b>1,50 <small>/100 g</small></b></li>
+        <li>Rossa, patate sfoglia<i></i><b>1,70 <small>/100 g</small></b></li>
+        <li>Farcita, ripiena<i></i><b>1,80 <small>/100 g</small></b></li>
+        <li>Supplì e crocchette<i></i><b>1,80 <small>cad.</small></b></li>
       </ul>
       <p style="margin-top:22px;font-size:15px;color:var(--tenue)">
         Pizze tonde da asporto su ordinazione —
