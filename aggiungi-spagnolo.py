@@ -28,7 +28,7 @@ NOMI = {
     'Cocktail': 'Cócteles', 'Bevande': 'Bebidas', 'Pizza al taglio': 'Pizza al corte',
     'TUTTO IL GIORNO': 'TODO EL DÍA',
     'TUTTO IL GIORNO · MERULANA 108': 'TODO EL DÍA · MERULANA 108',
-    'Tutti i giorni 7:30 — 22:00': 'Todos los días 7:30 — 22:00',
+    'Tutti i giorni 7:00 — 22:00': 'Todos los días 7:00 — 22:00',
     'Servita fino alle 16:00, anche nel pomeriggio.':
         'Servido hasta las 16:00, también por la tarde.',
     'Ogni formula comprende una bevanda a scelta: cocktail classico, spritz, vino, birra o analcolica.':

@@ -16,8 +16,8 @@ const LOCALE = {
   via: 'Via Merulana 106/107 · Roma',
   taglio: 'Via Merulana 108',
   tel: '+390686299500', telLabel: '06 86299500',
-  wa: '39375910047', waLabel: '375 910047',
-  orari: { it: 'Tutti i giorni 7:30 — 22:00', en: 'Every day 7:30 — 22:00', es: 'Todos los días 7:30 — 22:00' },
+  wa: '393759100947', waLabel: '375 9100947',
+  orari: { it: 'Tutti i giorni 7:00 — 22:00', en: 'Every day 7:00 — 22:00', es: 'Todos los días 7:00 — 22:00' },
   // password vuota: la targa Wi-Fi non compare affatto, invece di mostrare
   // un segnaposto ai clienti. Appena c'e', si scrive qui e riappare.
   wifi: { rete: 'Mera Bistrot', pass: '' },
@@ -424,7 +424,7 @@ const SEZIONI = [
   { it: 'Rosticceria', en: 'Fried snacks', es: 'Fritos', voci: [
     { it: 'Supplì classico, crocchetta', en: 'Classic supplì, potato croquette', es: 'Supplì clásico, croqueta', p: '1,80',
       dit: 'al pezzo', den: 'each', des: 'por unidad' },
-    { it: 'Supplì carbonara, amatriciana', en: 'Carbonara or amatriciana supplì', es: 'Supplì carbonara o amatriciana', p: '3,00',
+    { it: 'Supplì carbonara, amatriciana', en: 'Carbonara or amatriciana supplì', es: 'Supplì carbonara o amatriciana', p: '2,80',
       dit: 'al pezzo', den: 'each', des: 'por unidad' } ] },
   { it: 'Gastronomia', en: 'Deli', es: 'Gastronomía', voci: [
     { it: 'Primi piatti', en: 'Pasta dishes', es: 'Primeros', p: '7,00' },
