@@ -46,24 +46,16 @@ const SEZIONI = [
       den: 'Oats cooked in water or milk, with fresh fruit', des: 'Copos de avena cocidos en agua o leche, con fruta fresca' },
     { it: 'Pancake', en: 'Pancakes', es: 'Tortitas', p: '9',
       dit: 'Nutella o sciroppo d’acero, frutta fresca',
-      den: 'Nutella or maple syrup, fresh fruit', des: 'Nutella o sirope de arce, fruta fresca' },
-    { it: 'Bowl di yogurt', en: 'Yogurt bowl', es: 'Bol de yogur', p: '9',
-      dit: 'Yogurt cremoso con granola e frutta fresca',
-      den: 'Creamy yogurt with granola and fresh fruit', des: 'Yogur cremoso con granola y fruta fresca' } ] },
+      den: 'Nutella or maple syrup, fresh fruit', des: 'Nutella o sirope de arce, fruta fresca' } ] },
 
   { it: 'Salate', en: 'Savoury', es: 'Saladas', voci: [
     { it: 'Toast cotto', en: 'Ham toastie', es: 'Tostado de jamón cocido', p: '8',
       dit: 'Prosciutto cotto, insalata e bufala',
       den: 'Cooked ham, lettuce and buffalo mozzarella', des: 'Jamón cocido, lechuga y mozzarella de búfala' },
-    { it: 'Toast crudo', en: 'Prosciutto toastie', es: 'Tostado de jamón serrano', p: '8',
-      dit: 'Prosciutto crudo, insalata e stracciatella',
-      den: 'Cured ham, lettuce and stracciatella', des: 'Jamón serrano, lechuga y stracciatella' },
     { it: 'Toast al salmone', en: 'Salmon toastie', es: 'Tostado de salmón', p: '10',
       dit: 'Salmone affumicato, crema al formaggio e avocado',
       den: 'Smoked salmon, cream cheese and avocado', des: 'Salmón ahumado, queso crema y aguacate' },
     { it: 'Uova strapazzate con bacon', en: 'Scrambled eggs with bacon', es: 'Huevos revueltos con bacon', p: '11',
-      dit: 'Pane bruscato e insalata', den: 'Toasted bread and salad', des: 'Pan tostado y ensalada' },
-    { it: 'Uova strapazzate con würstel', en: 'Scrambled eggs with frankfurters', es: 'Huevos revueltos con salchichas', p: '11',
       dit: 'Pane bruscato e insalata', den: 'Toasted bread and salad', des: 'Pan tostado y ensalada' },
     { it: 'Omelette vegetariana', en: 'Vegetarian omelette', es: 'Tortilla vegetariana', p: '12',
       dit: 'Uova, zucchine, parmigiano', den: 'Eggs, courgettes, parmesan', des: 'Huevo, calabacín y parmesano' },
@@ -85,9 +77,6 @@ const SEZIONI = [
       dit: 'Colazione salata a scelta (escluso maxi club sandwich) + spremuta + caffè o cappuccino',
       den: 'Any savoury dish (maxi club sandwich excluded) + juice + coffee or cappuccino', des: 'Un salado a elegir (maxi club sandwich excluido) + zumo + café o capuchino' },
     { it: 'Maxi club sandwich', en: 'Maxi club sandwich set', es: 'Maxi club sandwich', p: '19',
-      dit: 'Spremuta d’arancia + caffè o cappuccino',
-      den: 'Orange juice + coffee or cappuccino', des: 'Zumo de naranja + café o capuchino' },
-    { it: 'Macedonia', en: 'Fruit salad set', es: 'Macedonia', p: '10',
       dit: 'Spremuta d’arancia + caffè o cappuccino',
       den: 'Orange juice + coffee or cappuccino', des: 'Zumo de naranja + café o capuchino' } ] } ] },
 
@@ -134,12 +123,6 @@ const SEZIONI = [
     { it: 'Torta del giorno', en: 'Cake of the day', es: 'Tarta del día', p: '5,00' } ] },
 
   { it: 'Centrifughe', en: 'Juices', es: 'Zumos naturales', suffisso: '6', voci: [
-    { it: 'Dissetante', en: 'Refreshing', es: 'Refrescante', dit: 'Mela, limone, zenzero',
-      den: 'Apple, lemon, ginger', des: 'Manzana, limón, jengibre' },
-    { it: 'Drenante', en: 'Draining', es: 'Drenante', dit: 'Pompelmo, cetriolo, finocchio',
-      den: 'Grapefruit, cucumber, fennel', des: 'Pomelo, pepino, hinojo' },
-    { it: 'Depurativa', en: 'Cleansing', es: 'Depurativa', dit: 'Kiwi, sedano, melone, zenzero',
-      den: 'Kiwi, celery, melon, ginger', des: 'Kiwi, apio, melón, jengibre' },
     { it: 'Vitamina A-C', en: 'Vitamin A-C', es: 'Vitamina A-C', dit: 'Carota, mango, arancia',
       den: 'Carrot, mango, orange', des: 'Zanahoria, mango, naranja' },
     { it: 'Detox', en: 'Detox', es: 'Detox', dit: 'Carota, sedano, finocchio',
@@ -156,19 +139,13 @@ const SEZIONI = [
     { it: 'Supplì all’amatriciana', en: 'Amatriciana supplì', es: 'Supplì a la amatriciana', p: '3' },
     { it: 'Bruschetta al pomodoro', en: 'Tomato bruschetta', es: 'Bruschetta de tomate', p: '4',
       dit: '2 pezzi', den: '2 pieces', des: '2 piezas' },
-    { it: 'Bruschetta al pesto', en: 'Pesto bruschetta', es: 'Bruschetta al pesto', p: '5',
-      dit: 'Con pomodorini confit · 2 pezzi', den: 'With confit cherry tomatoes · 2 pieces', des: 'Con tomates confitados · 2 piezas' },
     { it: 'Bruschetta stracciatella e alici', en: 'Stracciatella and anchovy bruschetta', es: 'Bruschetta de stracciatella y anchoas', p: '6',
       dit: '2 pezzi', den: '2 pieces', des: '2 piezas' },
     { it: 'Bruschetta salmone e stracciatella', en: 'Salmon and stracciatella bruschetta', es: 'Bruschetta de salmón y stracciatella', p: '6',
       dit: '2 pezzi', den: '2 pieces', des: '2 piezas' },
-    { it: 'Tris di bruschette', en: 'Three bruschette', es: 'Trío de bruschettas', p: '8' },
     { it: 'Caprese', en: 'Caprese', es: 'Caprese', p: '9' },
     { it: 'Crudo e bufala', en: 'Prosciutto and buffalo mozzarella', es: 'Jamón serrano y mozzarella de búfala', p: '13',
-      dit: 'Accompagnati da una focaccia', den: 'Served with a focaccia', des: 'Acompañados de una focaccia' },
-    { it: 'Tagliere di salumi', en: 'Cold cuts board', es: 'Tabla de embutidos', p: '22',
-      dit: 'Con 2 focacce e mozzarella di bufala, per due persone',
-      den: 'With 2 focacce and buffalo mozzarella, for two', des: 'Con 2 focaccias y mozzarella de búfala, para dos personas' } ] } ] },
+      dit: 'Accompagnati da una focaccia', den: 'Served with a focaccia', des: 'Acompañados de una focaccia' } ] } ] },
 
 /* ══ IV ══ PRIMI ══════════════════════════════════════════════════════════ */
 { id: 'primi', it: 'Primi piatti', en: 'Pasta', es: 'Primeros',
@@ -177,12 +154,14 @@ const SEZIONI = [
     { it: 'Tonnarelli all’amatriciana', en: 'Tonnarelli amatriciana', es: 'Tonnarelli a la amatriciana', p: '11' },
     { it: 'Tonnarelli cacio e pepe', en: 'Tonnarelli cacio e pepe', es: 'Tonnarelli cacio e pepe', p: '11' },
     { it: 'Tonnarelli alla gricia', en: 'Tonnarelli gricia', es: 'Tonnarelli a la gricia', p: '11' },
-    { it: 'Penne al pomodoro e basilico', en: 'Penne with tomato and basil', es: 'Penne con tomate y albahaca', p: '10' },
     { it: 'Lasagna alla bolognese', en: 'Lasagne bolognese', es: 'Lasaña a la boloñesa', p: '11' },
-    { it: 'Fettuccine al ragù di manzo', en: 'Fettuccine with beef ragù', es: 'Fettuccine con ragú de ternera', p: '11' },
-    { it: 'Fettuccine Alfredo', en: 'Fettuccine Alfredo', es: 'Fettuccine Alfredo', p: '10' },
-    { it: 'Fettuccine ai funghi porcini', en: 'Fettuccine with porcini', es: 'Fettuccine con boletus', p: '12' },
-    { it: 'Fettuccine al salmone', en: 'Fettuccine with salmon', es: 'Fettuccine con salmón', p: '13' } ] } ] },
+    { it: 'Fettuccine ai funghi porcini', en: 'Fettuccine with porcini', es: 'Fettuccine con boletus', p: '15' },
+    { it: 'Fettuccine al salmone', en: 'Fettuccine with salmon', es: 'Fettuccine con salmón', p: '14' } ] },
+
+  { it: '', en: '', es: '', formula: true, voci: [
+    { it: 'Formula primo', en: 'Pasta set', es: 'Fórmula primero', p: '14',
+      dit: 'Primo a scelta + supplì o crocchetta di patate + bibita',
+      den: 'Any pasta dish + a supplì or potato croquette + a drink', des: 'Primero a elegir + supplì o croqueta de patata + bebida' } ] } ] },
 
 /* ══ V ═══ SECONDI ════════════════════════════════════════════════════════ */
 { id: 'secondi', it: 'Secondi e contorni', en: 'Mains and sides', es: 'Segundos y guarniciones',
@@ -191,28 +170,19 @@ const SEZIONI = [
     { it: 'Polpette al sugo', en: 'Meatballs in tomato sauce', es: 'Albóndigas en salsa de tomate', p: '8',
       dit: 'Morbide polpette di manzo nel sugo di pomodoro · 5 pezzi',
       den: 'Soft beef meatballs in tomato sauce · 5 pieces', des: 'Albóndigas tiernas de ternera en salsa de tomate · 5 piezas' },
-    { it: 'Polpette all’amatriciana', en: 'Amatriciana meatballs', es: 'Albóndigas a la amatriciana', p: '10',
-      dit: 'Polpette di manzo con guanciale in salsa all’amatriciana · 5 pezzi',
-      den: 'Beef meatballs with guanciale in amatriciana sauce · 5 pieces', des: 'Albóndigas de ternera con guanciale en salsa amatriciana · 5 piezas' },
-    { it: 'Polpette ai funghi porcini', en: 'Meatballs with porcini', es: 'Albóndigas con boletus', p: '10',
-      dit: 'Polpette di manzo in salsa ai funghi porcini · 5 pezzi',
-      den: 'Beef meatballs in porcini sauce · 5 pieces', des: 'Albóndigas de ternera en salsa de boletus · 5 piezas' },
-    { it: 'Polpette al ragù', en: 'Meatballs in ragù', es: 'Albóndigas al ragú', p: '10',
-      dit: 'Morbide polpette con salsa al ragù · 5 pezzi',
-      den: 'Soft meatballs in ragù · 5 pieces', des: 'Albóndigas tiernas con salsa de ragú · 5 piezas' },
     { it: 'Hamburger al piatto', en: 'Beef patty, no bun', es: 'Hamburguesa sin pan', p: '11' },
-    { it: 'Cotoletta di pollo', en: 'Breaded chicken cutlet', es: 'Escalope de pollo', p: '9' },
-    { it: 'Thai di pollo con verdure', en: 'Thai chicken with vegetables', es: 'Pollo thai con verduras', p: '10' },
-    { it: 'Tagliata di pollo', en: 'Sliced chicken', es: 'Pollo en tiras', p: '13',
-      dit: 'Pomodori confit, grana, salsa all’aceto balsamico',
-      den: 'Confit tomatoes, grana, balsamic dressing', des: 'Tomates confitados, grana y salsa de vinagre balsámico' } ] },
+    { it: 'Thai di pollo con verdure', en: 'Thai chicken with vegetables', es: 'Pollo thai con verduras', p: '10' } ] },
 
   { it: 'Contorni', en: 'Sides', es: 'Guarniciones', suffisso: '5', voci: [
     { it: 'Patate al forno', en: 'Roast potatoes', es: 'Patatas al horno' },
     { it: 'Patatine fritte', en: 'Chips', es: 'Patatas fritas' },
     { it: 'Cicoria alla romana', en: 'Roman chicory', es: 'Achicoria a la romana' },
-    { it: 'Scarola', en: 'Escarole', es: 'Escarola' },
-    { it: 'Broccoli', en: 'Broccoli', es: 'Brócoli' } ] } ] },
+    { it: 'Broccoli', en: 'Broccoli', es: 'Brócoli' } ] },
+
+  { it: '', en: '', es: '', formula: true, voci: [
+    { it: 'Formula secondo', en: 'Main course set', es: 'Fórmula segundo', p: '15',
+      dit: 'Secondo a scelta + contorno + bevanda',
+      den: 'Any main course + a side + a drink', des: 'Segundo a elegir + guarnición + bebida' } ] } ] },
 
 /* ══ VI ══ INSALATONE E HAMBURGER ═════════════════════════════════════════ */
 { id: 'insalate', it: 'Insalatone e hamburger', en: 'Salads and burgers', es: 'Ensaladas y hamburguesas',
@@ -221,9 +191,6 @@ const SEZIONI = [
     { it: 'Mera', en: 'Mera', es: 'Mera', p: '11',
       dit: 'Lattuga, rughetta, pomodorini confit, tonno, olive nere, noci',
       den: 'Lettuce, rocket, confit tomatoes, tuna, black olives, walnuts', des: 'Lechuga, rúcula, tomates confitados, atún, aceitunas negras y nueces' },
-    { it: 'Classica', en: 'Classic', es: 'Clásica', p: '9',
-      dit: 'Lattuga, pomodorini, cetrioli, carote, cipolla rossa, olive nere',
-      den: 'Lettuce, cherry tomatoes, cucumber, carrot, red onion, black olives', des: 'Lechuga, tomate cherry, pepino, zanahoria, cebolla roja y aceitunas negras' },
     { it: 'Caesar', en: 'Caesar', es: 'César', p: '12',
       dit: 'Lattuga, pollo grigliato, crostini, scaglie di grana, salsa Caesar',
       den: 'Lettuce, grilled chicken, croutons, grana shavings, Caesar dressing', des: 'Lechuga, pollo a la plancha, picatostes, lascas de grana y salsa César' },
@@ -232,9 +199,6 @@ const SEZIONI = [
       den: 'Lettuce, smoked salmon, avocado, cucumber, tomatoes, sesame, teriyaki', des: 'Lechuga, salmón ahumado, aguacate, pepino, tomate cherry, sésamo y salsa teriyaki' } ] },
 
   { it: 'Hamburger', en: 'Burgers', es: 'Hamburguesas', voci: [
-    { it: 'Classico', en: 'Classic', es: 'Clásica', p: '13',
-      dit: 'Hamburger di manzo, lattuga, pomodoro, pane morbido + patatine fritte',
-      den: 'Beef patty, lettuce, tomato, soft bun + chips', des: 'Hamburguesa de ternera, lechuga, tomate, pan brioche + patatas fritas' },
     { it: 'Cheeseburger', en: 'Cheeseburger', es: 'Cheeseburger', p: '14',
       dit: 'Hamburger di manzo, cheddar, lattuga, pomodoro, pane morbido + patatine fritte',
       den: 'Beef patty, cheddar, lettuce, tomato, soft bun + chips', des: 'Hamburguesa de ternera, cheddar, lechuga, tomate, pan brioche + patatas fritas' },
@@ -243,26 +207,14 @@ const SEZIONI = [
       den: 'Beef patty, cheddar, crispy bacon, lettuce, tomato, soft bun + chips', des: 'Hamburguesa de ternera, cheddar, bacon crujiente, lechuga, tomate, pan brioche + patatas fritas' } ] },
 
   { it: '', en: '', es: '', formula: true, voci: [
-    { it: 'Formula hamburger', en: 'Burger set', es: 'Fórmula hamburguesa', p: '16',
-      dit: 'Hamburger a scelta + contorno + bevanda',
-      den: 'Any burger + a side + a drink', des: 'Hamburguesa a elegir + guarnición + bebida' } ] } ] },
+    { it: 'Formula hamburger e insalata', en: 'Burger or salad set', es: 'Fórmula hamburguesa o ensalada', p: '16',
+      dit: 'Hamburger o insalatona a scelta + contorno + bevanda',
+      den: 'Any burger or big salad + a side + a drink', des: 'Hamburguesa o ensalada a elegir + guarnición + bebida' } ] } ] },
 
 /* ══ VII ═ PIZZE ══════════════════════════════════════════════════════════ */
-{ id: 'pizze', it: 'Focacce e pizze tonde', en: 'Focaccia and pizza', es: 'Focaccias y pizzas',
+{ id: 'pizze', it: 'Pizze tonde', en: 'Round pizza', es: 'Pizzas redondas',
   foto: '../img/w_foto_tonda_speck.jpg',
   gruppi: [
-  { it: 'Le nostre focacce', en: 'Our focaccia', es: 'Nuestras focaccias', suffisso: '9', voci: [
-    { it: 'Mortadella & stracciatella', en: 'Mortadella & stracciatella', es: 'Mortadela y stracciatella',
-      dit: 'Mortadella, stracciatella, granella di pistacchio',
-      den: 'Mortadella, stracciatella, chopped pistachio', des: 'Mortadela, stracciatella y pistacho picado' },
-    { it: 'Crudo & stracciatella', en: 'Prosciutto & stracciatella', es: 'Jamón serrano y stracciatella',
-      dit: 'Prosciutto crudo, stracciatella, pesto',
-      den: 'Cured ham, stracciatella, pesto', des: 'Jamón serrano, stracciatella y pesto' },
-    { it: 'Salmone & bufala', en: 'Salmon & buffalo mozzarella', es: 'Salmón y mozzarella de búfala',
-      dit: 'Salmone, bufala, rucola', den: 'Salmon, buffalo mozzarella, rocket', des: 'Salmón, mozzarella de búfala y rúcula' },
-    { it: 'La vegetariana', en: 'The vegetarian', es: 'La vegetariana', dit: 'Scarola, broccoli, bufala',
-      den: 'Escarole, broccoli, buffalo mozzarella', des: 'Escarola, brócoli y mozzarella de búfala' } ] },
-
   { it: 'Pizze tonde rosse', en: 'Red pizzas', es: 'Pizzas rojas', voci: [
     { it: 'Marinara', en: 'Marinara', es: 'Marinara', p: '8',
       dit: 'Pomodoro, aglio, origano, olio EVO',
@@ -285,10 +237,7 @@ const SEZIONI = [
       den: 'Tomato, mozzarella, ham, mushrooms, olives, artichokes', des: 'Tomate, mozzarella, jamón cocido, champiñones, aceitunas y alcachofas' },
     { it: 'Bufala e pachino', en: 'Buffalo and cherry tomato', es: 'Búfala y tomate cherry', p: '12',
       dit: 'Pomodoro, mozzarella di bufala, pomodorini, basilico',
-      den: 'Tomato, buffalo mozzarella, cherry tomatoes, basil', des: 'Tomate, mozzarella de búfala, tomate cherry y albahaca' },
-    { it: 'Amatriciana', en: 'Amatriciana', es: 'Amatriciana', p: '12',
-      dit: 'Pomodoro, mozzarella, guanciale, pecorino, pepe',
-      den: 'Tomato, mozzarella, guanciale, pecorino, pepper', des: 'Tomate, mozzarella, guanciale, pecorino y pimienta' } ] },
+      den: 'Tomato, buffalo mozzarella, cherry tomatoes, basil', des: 'Tomate, mozzarella de búfala, tomate cherry y albahaca' } ] },
 
   { it: 'Pizze tonde bianche', en: 'White pizzas', es: 'Pizzas blancas', voci: [
     { it: 'Crostino', en: 'Crostino', es: 'Crostino', p: '11',
@@ -322,17 +271,11 @@ const SEZIONI = [
   nota: { it: 'Ogni formula comprende una bevanda a scelta: cocktail classico, spritz, vino, birra o analcolica.',
           en: 'Every set includes a drink of your choice: classic cocktail, spritz, wine, beer or soft drink.', es: 'Cada fórmula incluye una bebida a elegir: cóctel clásico, spritz, vino, cerveza o refresco.' },
   gruppi: [ { evidenza: true, voci: [
-    { it: 'Aperipizza', en: 'Aperipizza', es: 'Aperipizza', p: '10',
+    { it: 'Aperipizza', en: 'Aperipizza', es: 'Aperipizza', p: '12',
       dit: 'Pizza al taglio e una bevanda', den: 'Pizza by the slice and a drink', des: 'Pizza al corte y una bebida' },
-    { it: 'Aperifritti', en: 'Aperifritti', es: 'Aperifritti', p: '12',
+    { it: 'Aperifritti', en: 'Aperifritti', es: 'Aperifritti', p: '14',
       dit: 'Selezione di fritti caldi: supplì al telefono, crocchetta di patate, supplì carbonara o amatriciana',
-      den: 'Hot fried selection: classic supplì, potato croquette, carbonara or amatriciana supplì', des: 'Selección de fritos calientes: supplì clásico, croqueta de patata, supplì carbonara o amatriciana' },
-    { it: 'Happy hour', en: 'Happy hour', es: 'Happy hour', p: '12',
-      dit: 'Tagliere misto di salumi, stuzzichini e pizza al taglio',
-      den: 'Mixed cold cuts board, nibbles and pizza by the slice', des: 'Tabla mixta de embutidos, aperitivos y pizza al corte' },
-    { it: 'Aperitagliere', en: 'Aperitagliere', es: 'Aperitagliere', p: '15',
-      dit: 'Tagliere misto di salumi e formaggi, olive, sottoli, con una focaccia vuota',
-      den: 'Mixed cold cuts and cheese board, olives, preserves, with a plain focaccia', des: 'Tabla mixta de embutidos y quesos, aceitunas, encurtidos y una focaccia' } ] } ] },
+      den: 'Hot fried selection: classic supplì, potato croquette, carbonara or amatriciana supplì', des: 'Selección de fritos calientes: supplì clásico, croqueta de patata, supplì carbonara o amatriciana' } ] } ] },
 
 /* ══ IX ══ COCKTAIL ═══════════════════════════════════════════════════════ */
 { id: 'cocktail', it: 'Cocktail', en: 'Cocktails', es: 'Cócteles', suffissoSezione: '7',
@@ -405,34 +348,6 @@ const SEZIONI = [
     { it: 'Calice di vino bianco', en: 'Glass of white wine', es: 'Copa de vino blanco', p: '6,00' },
     { it: 'Calice di vino rosso', en: 'Glass of red wine', es: 'Copa de vino tinto', p: '6,00' },
     { it: 'Amari', en: 'Amaro', es: 'Amaro', p: '4,00' },
-    { it: 'Whisky', en: 'Whisky', es: 'Whisky', p: '4,00' } ] } ] },
-
-/* ══ XI ══ AL TAGLIO (108) ════════════════════════════════════════════════ */
-/* Prezzi dalla lavagna in strada, foto del 16 ottobre 2026: pizza a peso, rosticceria, gastronomia */
-{ id: 'taglio', it: 'Al taglio e gastronomia', en: 'By the slice and deli', es: 'Al corte y gastronomía',
-  ore: { it: 'TUTTO IL GIORNO · MERULANA 108', en: 'ALL DAY · MERULANA 108', es: 'TODO EL DÍA · MERULANA 108' },
-  foto: '../img/w_foto_tranci.jpg',
-  nota: { it: 'Due porte più in là, al 108. La pizza al taglio si paga a peso: prezzi ogni 100 g. Pizze tonde da asporto su ordinazione.',
-          en: 'Two doors down, at number 108. Pizza by the slice is sold by weight: prices per 100 g. Round pizzas to take away, on order.', es: 'Dos puertas más allá, en el 108. La pizza al corte se vende al peso: precios por 100 g. Pizzas redondas para llevar por encargo.' },
-  gruppi: [ { it: 'Pizza a peso', en: 'Pizza by weight', es: 'Pizza al peso', voci: [
-    { it: 'Pizza bianca', en: 'White pizza', es: 'Pizza blanca', p: '1,50',
-      dit: 'ogni 100 g', den: 'per 100 g', des: 'por 100 g' },
-    { it: 'Pizza rossa, patate sfoglia', en: 'Tomato pizza, thin-sliced potato', es: 'Pizza roja, patata en láminas', p: '1,70',
-      dit: 'ogni 100 g', den: 'per 100 g', des: 'por 100 g' },
-    { it: 'Pizza farcita, ripiena', en: 'Topped or filled pizza', es: 'Pizza con relleno', p: '1,80',
-      dit: 'ogni 100 g', den: 'per 100 g', des: 'por 100 g' } ] },
-  { it: 'Rosticceria', en: 'Fried snacks', es: 'Fritos', voci: [
-    { it: 'Supplì classico, crocchetta', en: 'Classic supplì, potato croquette', es: 'Supplì clásico, croqueta', p: '1,80',
-      dit: 'al pezzo', den: 'each', des: 'por unidad' },
-    { it: 'Supplì carbonara, amatriciana', en: 'Carbonara or amatriciana supplì', es: 'Supplì carbonara o amatriciana', p: '2,80',
-      dit: 'al pezzo', den: 'each', des: 'por unidad' } ] },
-  { it: 'Gastronomia', en: 'Deli', es: 'Gastronomía', voci: [
-    { it: 'Primi piatti', en: 'Pasta dishes', es: 'Primeros', p: '7,00' },
-    { it: 'Secondi', en: 'Main courses', es: 'Segundos', p: '8,00' },
-    { it: 'Contorni', en: 'Side dishes', es: 'Guarniciones', p: '4,00' },
-    { it: 'Secondo, contorno e acqua', en: 'Main, side and water', es: 'Segundo, guarnición y agua', p: '10,00' },
-    { it: 'Trittico', en: 'Trio', es: 'Trío', p: '10,00' } ] },
-  { it: '', en: '', es: '', voci: [
-    { it: 'Bibita in lattina', en: 'Canned drink', es: 'Refresco en lata', p: '3,50' } ] } ] }
+    { it: 'Whisky', en: 'Whisky', es: 'Whisky', p: '4,00' } ] } ] }
 
 ];
