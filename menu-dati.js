@@ -207,9 +207,9 @@ const SEZIONI = [
       den: 'Beef patty, cheddar, crispy bacon, lettuce, tomato, soft bun + chips', des: 'Hamburguesa de ternera, cheddar, bacon crujiente, lechuga, tomate, pan brioche + patatas fritas' } ] },
 
   { it: '', en: '', es: '', formula: true, voci: [
-    { it: 'Formula hamburger e insalata', en: 'Burger or salad set', es: 'Fórmula hamburguesa o ensalada', p: '16',
-      dit: 'Hamburger o insalatona a scelta + contorno + bevanda',
-      den: 'Any burger or big salad + a side + a drink', des: 'Hamburguesa o ensalada a elegir + guarnición + bebida' } ] } ] },
+    { it: 'Formula hamburger', en: 'Burger set', es: 'Fórmula hamburguesa', p: '16',
+      dit: 'Hamburger a scelta + contorno + bevanda',
+      den: 'Any burger + a side + a drink', des: 'Hamburguesa a elegir + guarnición + bebida' } ] } ] },
 
 /* ══ VII ═ PIZZE ══════════════════════════════════════════════════════════ */
 { id: 'pizze', it: 'Pizze tonde', en: 'Round pizza', es: 'Pizzas redondas',
